@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="row mt-4">
+  <section class="col m4">
+    <h5>Formulario para agregar actores</h5>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input  id="disabled" type="text">
+          <label for="disabled">Nombre</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input  id="disabled" type="text">
+          <label for="disabled">País de Origen</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Selecciona la especialidad</option>
+            <option value="1">Comedia</option>
+            <option value="2">Acción</option>
+            <option value="3">Drama</option>
+            <option value="3">Infantil</option>
+            <option value="3">Romance</option>
+          </select>
+          <label>Seleccione Especialidad</label>
+        </div>
+      </div>
+      <input type="submit" value="Enviar" class="btn">
+    </form>
+  </section>
+  <section class="col m8 teal lighten-2">
+    <table>
+      <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>País</th>
+            <th>Especialidad</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>John Travolta</td>
+          <td>EEUU</td>
+          <td>Acción</td>
+        </tr>
+        <tr>
+          <td>Kate Winslet</td>
+          <td>Reino Unido</td>
+          <td>Drama</td>
+        </tr>
+        <tr>
+          <td>Compadre Moncho</td>
+          <td>Chile</td>
+          <td>Comedia</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+{% endblock %}

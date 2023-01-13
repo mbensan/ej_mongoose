@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="row mt-4">
+  <section class="col m4">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input  id="titulo" type="text" required>
+          <label>Título</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="duracion" type="number" required>
+          <label>Duración</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="fecha" type="date" required>
+          <label>Fecha</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input  id="sinopsis" type="text">
+          <label>Sinopsis</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input  id="disabled" type="text">
+          <label>Tags (separe por coma)</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select multiple>
+            <option value="" disabled selected>Selecciona los actores</option>
+            <option value="1">John Travolta</option>
+            <option value="2">Scarlett Johansonn</option>
+            <option value="3">Compadre Moncho</option>
+          </select>
+          <label>Materialize Multiple Select</label>
+        </div>
+      </div>
+      <input type="submit" value="Enviar" class="btn">
+    </form>
+  </section>
+  <section class="col m8 teal lighten-2">
+    <div class="row">
+      {% for pelicula in peliculas %}
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{ pelicula.portada }}">
+              <span class="card-title">{{ pelicula.titulo }}</span>
+            </div>
+            <div class="card-content">
+              <p>{{ pelicula.sinopsis }}</p>
+            </div>
+            <div class="card-action">
+              <a href="#">{{ pelicula.duracion }}</a>
+              <a href="#">{{ pelicula.fecha }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://s1.eestatic.com/2021/08/25/elandroidelibre/aplicaciones/juegos/606950840_201307366_1024x576.jpg">
+            <span class="card-title">El Señor de los Anillos</span>
+          </div>
+          <div class="card-content">
+            <p>El Señor de los Anillos es una novela de fantasía épica escrita por el filólogo y escritor británico J. R. R. Tolkien.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">90 mins</a>
+            <a href="#">Año 2001</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://3.bp.blogspot.com/-CKP0PEsUwcE/UHCZxPZRGUI/AAAAAAAACuE/nGk0W1_Pkvo/w1200-h630-p-k-no-nu/el_quinto_elemento_luc_besson.jpg">
+            <span class="card-title">El quinto elemento</span>
+          </div>
+          <div class="card-content">
+            <p>Cada 5.000 años se abre una puerta entre dos dimensiones. En una dimensión existe el Universo y la vida y en la otra un elemento que no está hecho ni de tierra, ni de fuego, ni de aire, ni de agua, sino que es una antienergía</p>
+          </div>
+          <div class="card-action">
+            <a href="#">90 mins</a>
+            <a href="#">Año 1997</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+{% endblock %}
+
+<!-- Acá va el formulario -->

@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="row">
+    <div class="col m4">
+      <h4 class="center">Crear Frase Famosas</h4>
+      <form action="/quote" method="post">
+        <p>Cita: <input type="text" name="text" required></p>
+        <input class="btn btn-success" type="submit" value="Enviar">
+      </form>
+    </div>
+    <div class="col m8">
+      <h4 class="center">Lista de Frases Famosas</h4>
+      <ul class="collection">
+        <li class="collection-item">La materia no se crea ni se destruye, sólo se transforma (28 de Febrero de 2022)</li>
+        <li class="collection-item">No hay que ir para atrás ni para darse impulso (25 de Febrero de 2022)</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
